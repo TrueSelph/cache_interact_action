@@ -1,0 +1,20 @@
+package:
+  name: "jivas/cache_interact_action"
+  author: "V75 Inc."
+  archetype: "CacheInteractAction"
+  version: "0.1.0"
+  meta:
+    title: "Cache Interact Action"
+    description: "This action reduces token usage by caching and reusing responses."
+    group: "custom"
+    type: "interact_action"
+  config:
+    singleton: "true"
+    order:
+      weight: 1
+      after: jivas/persona_interact_action
+  dependencies:
+    jivas: ~2.1.0
+    actions:
+      jivas/persona_interact_action: "~0.1.0"
+      jivas/typesense_vector_store_action: "~0.1.0"
