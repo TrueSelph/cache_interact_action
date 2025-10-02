@@ -1,4 +1,4 @@
-"""This module renders the streamlit app for the Lightspeed Retrieval Interact Action."""
+"""This module renders the streamlit app for the Cache Interact Action."""
 
 from typing import Any, Dict, List
 
@@ -9,7 +9,7 @@ from streamlit_router import StreamlitRouter
 
 
 def render(router: StreamlitRouter, agent_id: str, action_id: str, info: dict) -> None:
-    """Render the Streamlit app for the Lightspeed Retrieval Interact Action.
+    """Render the Streamlit app for the Cache Interact Action.
 
     Args:
         router: The StreamlitRouter instance
@@ -28,17 +28,23 @@ def render(router: StreamlitRouter, agent_id: str, action_id: str, info: dict) -
 
     # Configuration section
     with st.expander("⚙️ Cache Interact Action Configuration", expanded=False):
-        app_controls(agent_id, action_id, ["can_use_filter", "total_token_saved"])
+        app_controls(
+            agent_id,
+            action_id,
+            ["can_use_filter", "total_token_saved", "functions", "anchors"],
+        )
         app_update_action(agent_id, action_id)
 
     # Search section
     st.markdown("---")
     st.subheader(
-        f"Total tokens saved: {st.session_state[model_key]["total_token_saved"]}"
+        f"🔍 Search Cached Responses | Total tokens saved: {st.session_state[model_key]['total_token_saved']}"
     )
 
-    st.markdown("---")
-    st.subheader("🔍 Search Cached Responses")
+    # st.subheader(f"Total tokens saved: {st.session_state[model_key]["total_token_saved"]}")
+
+    # st.markdown("---")
+    # st.subheader("🔍 Search Cached Responses")
 
     query = st.text_input(
         "Search Query",
