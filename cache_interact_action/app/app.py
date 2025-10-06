@@ -64,7 +64,7 @@ def render(router: StreamlitRouter, agent_id: str, action_id: str, info: dict) -
         max_value=1.0,
         value=st.session_state[model_key]["score_threshold"],
         step=0.001,
-        format="%.3f"
+        format="%.3f",
     )
 
     # Search button
