@@ -59,7 +59,12 @@ def render(router: StreamlitRouter, agent_id: str, action_id: str, info: dict) -
     )
 
     score_threshold = st.number_input(
-        "Score Threshold", min_value=0.0, max_value=1.0, value=0.015, step=0.001
+        "Score Threshold",
+        min_value=0.001,
+        max_value=1.0,
+        value=st.session_state[model_key]["score_threshold"],
+        step=0.001,
+        format="%.3f"
     )
 
     # Search button

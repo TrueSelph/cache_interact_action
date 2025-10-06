@@ -16,7 +16,7 @@ node CacheInteractAction(InteractAction) {
 
     has vector_store_action:str = "TypesenseVectorStoreAction";
     has retrieval_interact_action:str = "TypesenseRetrievalInteractAction";
-    has score_threshold:float = 0.015;
+    has score_threshold:float = 0.1;
     has expire_days:int = 0; # zero means no expiration
     has k:int = 1;
     has metadata:bool = True;
